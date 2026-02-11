@@ -2,25 +2,29 @@ import AddForm from "./components/AddForm"
 
 function App() {
  
-  const shoppingItems = [
+  const shopItem = [
     {
       id: 0, 
       title: "Melk",
-      quantity: 2
+      quantity: 2,
+      selected: false
+
     },
     {
       id: 1,
       title: "Egg", 
-      quantity: 1
+      quantity: 1,
+      selected: true
     }
   ]
 
-  const [addForm, setShoppingItem] = useState()
+  const [shoppingList, setShoppingList] = useState(shopItem)
 
   return (
     <main>
     <h1>Handleliste</h1>
-    <AddForm shoppingItems={shoppingItems} setShoppingItem={setShoppingItem} setShoppingList={setShoppingList} />
+    <AddForm shoppingItems={shoppingList} 
+    setShoppingItem={setShoppingList} setShoppingList={setShoppingList} />
      
     </main>
   )

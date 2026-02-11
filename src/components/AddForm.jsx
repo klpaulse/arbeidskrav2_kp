@@ -1,10 +1,10 @@
-export default function AddForm({ShoppingItem, setShoppingItem, setShoppingList }) {
+export default function AddForm({ShoppingItem, setShoppingItem, setShoppingList}) {
     
     const handleChange = (e) => {
         const {name, value } = e.target
         setShoppingItem((prev) => ({
             ...prev,
-            [name]: value
+            [name]: name === "quantity" ? Number(value) : value 
         }))
     }
 
