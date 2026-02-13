@@ -1,4 +1,8 @@
+import {useState} from "react"
 import AddForm from "./components/AddForm"
+import ShoppingList from "./components/ShoppingList"
+
+
 
 function App() {
  
@@ -23,9 +27,8 @@ function App() {
   return (
     <main>
     <h1>Handleliste</h1>
-    <AddForm shoppingItems={shoppingList} 
-    setShoppingItem={setShoppingList} setShoppingList={setShoppingList} />
-     
+    <AddForm shoppingList={shoppingList} setShoppingList={setShoppingList} />
+    <ShoppingList shopItem={shoppingList} setShoppingList={setShoppingList} />
     </main>
   )
 }

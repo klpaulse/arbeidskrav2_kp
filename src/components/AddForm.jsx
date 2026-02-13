@@ -1,20 +1,32 @@
-export default function AddForm({ShoppingItem, setShoppingItem, setShoppingList}) {
-    
-    const handleChange = (e) => {
-        const {name, value } = e.target
-        setShoppingItem((prev) => ({
-            ...prev,
-            [name]: name === "quantity" ? Number(value) : value 
-        }))
+import { useState} from "react"
+export default function AddForm({shoppingList, setShoppingList}) {
+ 
+const [name, setName] = useState("")
+const[quantity, setQuantity] = useState("")
+const [error, setError] = useState("")
+
+    const handleClick = (e) => {
+        e.preventDefault()
+
+       if (!name || !quantity){
+        setError("synd")
+        return
+       }
+
+       const newItem = {
+        id: crypto.randomUUID(),
+        title: name, 
+        quantity: Number(quantity),
+        selected: false
+       }
+
+       setShoppingList(prev => [...prev, newItem])
+       setName("")
+       setQuantity("")
+        
     }
 
 
-const handleClick = (e)=> {
-    e.preventDefault()
-    const uniqId = crypto.randomUUID()
-    setShoppingList((prev) => ([...prev, {id:uniqId,...ShoppingItem}]))
-    console.log(ShoppingItem)
-}
 
 
 return (
@@ -23,8 +35,9 @@ return (
         <input name="title"
         type="text"
         id="formtitle"
+        value={name}
         placeholder="Egg.."
-        onChange={handleChange}
+        onChange={(e) => setName(e.target.value)}
         />
 
         <label htmlFor = "formantall">Antall</label>
@@ -32,7 +45,8 @@ return (
         type="number"
         id="formantall"
         placeholder="2"
-        onChange={handleChange}
+        value={quantity}
+        onChange={(e) => setQuantity(e.target.value)}
         />
         <button>Legg til vare</button>
 

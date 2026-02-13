@@ -1,12 +1,25 @@
-export default function ShoppingItem({title, quantity, id, setShoppingList}) {
-    const handleClick = () =>{
-     setShoppingList((prev) => prev.filter(item => item.id !== id))  
-     console.log(id) 
+export default function ShoppingItem({item, setShoppingList}) {
+   
+    function toggleSelected (){
+        setShoppingList(prev => 
+            prev.map(i =>
+                i.id === item.id ? { ...i, selected: !i.selected} : i
+            )
+        )
     }
+
+    
     return(
         <article>
-            <h3>{title}</h3>
-            <p>{quantity}</p>
+            <input
+            name="title"
+            type="checkbox"
+            
+            checked={item.selected}
+            onChange={toggleSelected} />
+            <h3>{item.title}</h3>
+            <p>{item.quantity}</p>
+            
         </article>
     )
 }
