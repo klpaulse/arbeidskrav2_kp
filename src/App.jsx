@@ -1,3 +1,4 @@
+import './App.css'
 import {useState} from "react"
 import AddForm from "./components/AddForm"
 import ShoppingList from "./components/ShoppingList"

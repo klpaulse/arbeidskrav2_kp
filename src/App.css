@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.addform{
+  display: flex;
+  flex-direction: column; 
+}
+
+.leggtil{
+  background-color: #000000;
+  color: #fff;
+}
+.vare{
+    background-color: #000000; 
+    color: #fff; 
+    padding: 1rem; 
+    width: 27%; 
+}

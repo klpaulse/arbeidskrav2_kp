@@ -9,7 +9,7 @@ const [error, setError] = useState("")
         e.preventDefault()
 
        if (!name || !quantity){
-        setError("synd")
+        setError("Fyll inn vare og antall")
         return
        }
 
@@ -20,7 +20,7 @@ const [error, setError] = useState("")
         selected: false
        }
 
-       setShoppingList(prev => [...prev, newItem])
+       setShoppingList(prev => [newItem, ...prev])
        setName("")
        setQuantity("")
         
@@ -30,7 +30,8 @@ const [error, setError] = useState("")
 
 
 return (
-    <form onSubmit={handleClick}>
+    <>
+    <form className="addform" onSubmit={handleClick}>
         <label htmlFor="formtitle">Vare</label>
         <input name="title"
         type="text"
@@ -46,10 +47,13 @@ return (
         id="formantall"
         placeholder="2"
         value={quantity}
+        min="1"
         onChange={(e) => setQuantity(e.target.value)}
         />
-        <button>Legg til vare</button>
+        <button className="leggtil">Legg til vare</button>
 
     </form>
+    {error && <p style={{ color: "red" }}>{error}</p>}
+    </>
 )
 }

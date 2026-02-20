@@ -8,18 +8,31 @@ export default function ShoppingItem({item, setShoppingList}) {
         )
     }
 
-    
+    function updateQuantity(newQuantity) {
+        setShoppingList(prev =>
+            prev.map(i=>
+                i.id === item.id? { ...i, quantity: Math.max(1, newQuantity)}
+                :i
+            )
+        )
+    }
     return(
-        <article>
-            <input
-            name="title"
-            type="checkbox"
-            
-            checked={item.selected}
-            onChange={toggleSelected} />
-            <h3>{item.title}</h3>
-            <p>{item.quantity}</p>
-            
-        </article>
-    )
+    <article className ="vare">
+        <h3>{item.title}</h3>
+        <input
+        name="title"
+        type="checkbox"
+        checked={item.selected}
+        onChange={toggleSelected} />
+        
+        <input 
+        name="quantity"
+        type="number"
+        value={item.quantity}
+        min="1"
+        onChange={(e) => updateQuantity (Number(e.target.value))} />
+
+    </article>
+)
+
 }
