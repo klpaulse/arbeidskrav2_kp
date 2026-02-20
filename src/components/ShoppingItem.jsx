@@ -26,7 +26,7 @@ export default function ShoppingItem({item, setShoppingList}) {
         onChange={toggleSelected} />
          <h3>{item.title}</h3>
         
-        <input className="right"
+        <input
         name="quantity"
         type="number"
         value={item.quantity}
