@@ -45,6 +45,7 @@
 .addform{
   display: flex;
   flex-direction: column; 
+  gap: 1rem;
 }
 
 .leggtil{
@@ -52,8 +53,21 @@
   color: #fff;
 }
 .vare{
-    background-color: #000000; 
-    color: #fff; 
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+
     padding: 1rem; 
     width: 27%; 
+    
+    
+    
+    input{
+      width: 50px;
+      height: 30px;
+      
+    }
+    
 }
+
+

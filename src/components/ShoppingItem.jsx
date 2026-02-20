@@ -18,14 +18,15 @@ export default function ShoppingItem({item, setShoppingList}) {
     }
     return(
     <article className ="vare">
-        <h3>{item.title}</h3>
+
         <input
         name="title"
         type="checkbox"
         checked={item.selected}
         onChange={toggleSelected} />
+         <h3>{item.title}</h3>
         
-        <input 
+        <input className="right"
         name="quantity"
         type="number"
         value={item.quantity}
